@@ -13,10 +13,7 @@ namespace Capstone
         {        }
 
 
-        public Penguin Emperor = new Penguin("B1", "Emperor Penguin", 2.80M, "Penguin");         
-        public Penguin Macaroni = new Penguin("B2", "Macaroni Penguin", 2.25M, "Penguin");
-        public Penguin Rockhopper = new Penguin("B3", "Rockhopper Penguin", 1.50M, "Penguin");
-        public Penguin Galapagos = new Penguin("B4", "Galapagos Penguin", 1.25M, "Penguin");
+        
 
         
                

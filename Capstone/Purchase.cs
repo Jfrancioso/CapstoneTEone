@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Capstone;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Capstone
@@ -22,6 +24,11 @@ namespace Capstone
             return changeToDispense;
 
 
+        }
+
+        public StuffedAnimals SelectProduct(string userInput)
+        {
+            return stuffedAnimalsDictionary[userInput];
         }
 
     }
