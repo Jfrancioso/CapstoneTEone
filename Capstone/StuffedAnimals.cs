@@ -6,7 +6,7 @@ namespace Capstone
 {
     public class StuffedAnimals
     {
-        public string Species { get; private set; }
+        public string Species { get; set; }
 
         public string Name { get; set; }
 
@@ -16,14 +16,15 @@ namespace Capstone
 
         public int CurrentStock { get; } = 5;
 
-        public StuffedAnimals(string species, string name, decimal price, string position)
+
+        public StuffedAnimals(string position, string name, decimal price, string species)
         {
             Species = species;
             Name = name;
             Price = price;
             Position = position;
             
-        }
+        }     
     }
 
 }

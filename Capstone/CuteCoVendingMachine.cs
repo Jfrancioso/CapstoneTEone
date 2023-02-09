@@ -6,6 +6,11 @@ namespace Capstone
 {
     public class CuteCoVendingMachine
     {
+      
+
+
+
+
 
     }
 }
