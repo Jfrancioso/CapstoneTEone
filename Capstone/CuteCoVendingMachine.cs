@@ -77,9 +77,11 @@ namespace Capstone
             foreach (KeyValuePair<string, StuffedAnimals> kvp in test)
             {
                 if (kvp.Value.CurrentStock == 0)
-                { Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + "Out of Stock"); }
-                Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + kvp.Value.CurrentStock);
+                { Console.WriteLine(kvp.Key + "  :  " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + "Out of Stock"); }
+                Console.WriteLine(kvp.Key + "  :  " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + kvp.Value.CurrentStock);
+                
             }
+            Console.WriteLine();
         }
 
         public void DispenseProduct(StuffedAnimals BeingAdopted, Purchase OngoingPurchase)

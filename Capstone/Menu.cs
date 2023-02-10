@@ -27,9 +27,10 @@ namespace Capstone
                 {
 
                     Console.WriteLine("Welcome to the CuteCo Vendomatic800, where cuteness is our currency and you will leave with a new best friend! :)");
-                    Console.WriteLine("To see what CrazyCuteCreatures we have in stock, select 1 for Display");
-                    Console.WriteLine("To bring your new bestie home, select 2 for Purchasing");
-                    Console.WriteLine("To leave all these sweeties behind and continue your drab existence alone, press 3 to Exit");
+                Console.WriteLine();   
+                Console.WriteLine("(1) To see what CrazyCuteCreatures we have in stock, select 1 for Display");
+                    Console.WriteLine("(2) To bring your new bestie home, select 2 for Purchasing");
+                    Console.WriteLine("(3) To leave all these sweeties behind and continue your drab existence alone, press 3 to Exit");
 
                     string userInputString = Console.ReadLine();
 
@@ -92,6 +93,13 @@ namespace Capstone
                             }
                         }
                         else if (userPurchaseSelection == "3")
+                    {
+                        currentPurchase.ConvertChange(currentPurchase.CurrentBalance);
+
+
+
+
+                    }
 
                             Console.WriteLine("Thank you for using CuteCo to brighten your day and bring meaning to your sad little life!");
                         // Insert FinishTransaction function

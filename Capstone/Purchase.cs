@@ -59,5 +59,40 @@ namespace Capstone
             }
 
         }
+
+
+        public decimal MakeChange(Purchase currentBalance)
+        {
+            decimal change = 0;
+            change = currentBalance.CurrentBalance;
+            return change;
+
+        }
+
+        public void ConvertChange(decimal change)
+
+        {
+            decimal quarters=0 ;
+            decimal dimes=0 ;
+            decimal nickels=0 ;
+
+            while (change >= .25M)
+            {
+                quarters = Math.Truncate((change/.25m));
+                change -= quarters * .25M;
+
+            }
+            while (change >= .10M)
+            {
+                dimes = Math.Truncate((change / .10M));
+                change -= dimes * .10M;
+            }
+            while (change >= .05M)
+            {
+                nickels = Math.Truncate((change / .05M));
+                change -= nickels * .05M;
+            }
+            Console.WriteLine($"Quarters: {quarters} Dimes: {dimes} Nickels:{nickels}");
+        }
     }
 }
