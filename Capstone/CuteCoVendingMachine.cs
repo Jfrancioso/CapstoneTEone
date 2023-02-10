@@ -64,7 +64,13 @@ namespace Capstone
            
         }
 
-
+        public void DisplayCurrentInventory(Dictionary<string,StuffedAnimals> test )
+        {
+            foreach (KeyValuePair<string, StuffedAnimals> kvp in test)
+            {
+                Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + kvp.Value.CurrentStock);
+            }
+        }
         
 
    

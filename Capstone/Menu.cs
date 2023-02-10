@@ -14,7 +14,7 @@ namespace Capstone
 
             LoadedDictionary = loadedVendingMachine.LoadInventory(loadedVendingMachine.StuffedAnimalsDictionary);
 
-
+            Purchase currentPurchase = new Purchase(0, DateTime.Now);
             //Creating main user interface
 
             while (true)
@@ -30,10 +30,8 @@ namespace Capstone
 
                 if (userInputString == "1") //Display selection
                 {
-                    foreach (KeyValuePair<string, StuffedAnimals> kvp in LoadedDictionary) 
-                    {
-                        Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + kvp.Value.CurrentStock);
-                    }
+                   
+                    loadedVendingMachine.DisplayCurrentInventory(LoadedDictionary);
                 }
                 else if (userInputString == "2") // Purchase Flow
                 {
@@ -45,20 +43,30 @@ namespace Capstone
 
                     if (userPurchaseSelection == "1")
                     {
+                        
                         Console.WriteLine("Money Money Money please. Cash rules everything around me, CREAM.");
                         Console.WriteLine("Please type how much money you are adding.");
                         string userMoneyInput = Console.ReadLine();
-                        int userMoneyToAdd = int.Parse(userMoneyInput);
-                        Console.WriteLine("Current Money Provided:");
+                        decimal userMoneyToAdd = decimal.Parse(userMoneyInput);
+                        currentPurchase.FeedMoney(userMoneyToAdd); 
+                        Console.WriteLine($"Current Money Provided:{currentPurchase.CurrentBalance}");
+                        Console.WriteLine();
+
                          
                         
                         
                     }
                     else if (userPurchaseSelection == "2")
                     {
-                        Console.WriteLine("Who are you taking home today?");
-                        //Insert SelectProduct function
-                        break;
+                        loadedVendingMachine.DisplayCurrentInventory(LoadedDictionary);
+
+                        Console.WriteLine("Who are you taking home today?");//Insert SelectProduct function
+
+                        string productSelectionInput = Console.ReadLine();
+                        StuffedAnimals productSelected=loadedVendingMachine.StuffedAnimalsDictionary[productSelectionInput];
+                        Console.WriteLine($"You have selected {productSelected.Name}");
+                       
+                        
                     }
                     else if (userPurchaseSelection == "3")
                     {
