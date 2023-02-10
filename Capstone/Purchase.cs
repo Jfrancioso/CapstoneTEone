@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -14,13 +15,13 @@ namespace Capstone
         public DateTime DateTime { get; set; }
         
         public StuffedAnimals ProductSelected { get; set; } //needs to indicate a position set by the user, and reference a stuffedAnimal(hypothetically through a dictionary?)
-
+        public decimal UserMoney { get; set; }
         public Purchase(decimal currentBalance, DateTime dateTime)
         {
             CurrentBalance = currentBalance;
             DateTime = dateTime;
         }
-
+       
         public decimal FeedMoney(decimal moneyAdded) 
         { CurrentBalance += moneyAdded; return CurrentBalance; } //function for user to add money
        
@@ -33,13 +34,32 @@ namespace Capstone
 
         }
 
+        public void RecordFeedMoney(Purchase purchaseToRecord)
+        {
+            string CurrentDirectory = Environment.CurrentDirectory;
+            string TransactionFile = "Log.txt";
+            string fullPath = Path.Combine(CurrentDirectory, TransactionFile);
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                sw.WriteLine(DateTime.Now + " FEEDMONEY " + "Money deposited/spent/given: " + UserMoney + " New Balance: " + CurrentBalance);
+            }
+            
+            //{ sw.WriteLine(DateTime.Now + "FEED MONEY" + userMoneyToAdd + currentPurchase.CurrentBalance); } //recording feed money to log.txt
+        }
 
-        //public StuffedAnimals SelectProduct(string userInput) //the function that needs to take user input and connect it to a reference of a stuffedanimal
-        //{
-        //    StuffedAnimals productSelected = CuteCoVendingMachine.StuffedAnimalsDictionary.Value[userInput];
-        //    return productSelected ;
-        //}
+        public void RecordTransaction(Purchase purchaseToRecord)
+        {
+            string CurrentDirectory = Environment.CurrentDirectory;
+            string TransactionFile = "Log.txt";
+            string fullPath = Path.Combine(CurrentDirectory, TransactionFile);
+            using (StreamWriter sw = new StreamWriter(fullPath, true))
+            {
+                sw.WriteLine(DateTime.Now +" " + purchaseToRecord.ProductSelected.Name + " Money deposited/spent/given: " + purchaseToRecord.UserMoney + " New Balance: " + CurrentBalance);
+            }
+
+        }
 
 
+
+        }
     }
-}
