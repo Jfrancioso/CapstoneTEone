@@ -30,51 +30,62 @@ namespace Capstone
 
                 if (userInputString == "1") //Display selection
                 {
-                   
+
                     loadedVendingMachine.DisplayCurrentInventory(LoadedDictionary);
                 }
                 else if (userInputString == "2") // Purchase Flow
                 {
-                    
+
                     Console.WriteLine("Select 1 to add money");
                     Console.WriteLine("Select 2 to pick your pal");
                     Console.WriteLine("Select 3 to Finish transaction");
                     string userPurchaseSelection = Console.ReadLine();
 
-                    if (userPurchaseSelection == "1")
+                    if (userPurchaseSelection == "1") //FeedMoney function
                     {
-                        
+
                         Console.WriteLine("Money Money Money please. Cash rules everything around me, CREAM.");
                         Console.WriteLine("Please type how much money you are adding.");
                         string userMoneyInput = Console.ReadLine();
                         decimal userMoneyToAdd = decimal.Parse(userMoneyInput);
-                        currentPurchase.FeedMoney(userMoneyToAdd); 
+                        currentPurchase.FeedMoney(userMoneyToAdd);
                         Console.WriteLine($"Current Money Provided:{currentPurchase.CurrentBalance}");
                         Console.WriteLine();
 
-                         
-                        
-                        
                     }
-                    else if (userPurchaseSelection == "2")
+                    else if (userPurchaseSelection == "2") //select product function
                     {
                         loadedVendingMachine.DisplayCurrentInventory(LoadedDictionary);
 
                         Console.WriteLine("Who are you taking home today?");//Insert SelectProduct function
 
                         string productSelectionInput = Console.ReadLine();
-                        StuffedAnimals productSelected=loadedVendingMachine.StuffedAnimalsDictionary[productSelectionInput];
-                        Console.WriteLine($"You have selected {productSelected.Name}");
-                       
-                        
-                    }
-                    else if (userPurchaseSelection == "3")
-                    {
-                        Console.WriteLine("Thank you for using CuteCo to brighten your day and bring meaning to your sad little life!");
-                        // Insert FinishTransaction function
+
+                        if (loadedVendingMachine.StuffedAnimalsDictionary.ContainsKey(productSelectionInput)) //checks that product exists
+                        {
+                            StuffedAnimals productSelected = loadedVendingMachine.StuffedAnimalsDictionary[productSelectionInput];
+                            Console.WriteLine($"You have selected {productSelected.Name}");
+
+                            if (productSelected.Price <= currentPurchase.CurrentBalance)
+                            { loadedVendingMachine.DispenseProduct(productSelected, currentPurchase); }//dispense method, affects tock and current balance
+                            else { Console.WriteLine("Please add more money to get selected product"); }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have entered an invalid product code");
+                        }
+
+
+
 
                     }
+                    else if (userPurchaseSelection == "3")
+
+                        Console.WriteLine("Thank you for using CuteCo to brighten your day and bring meaning to your sad little life!");
+                    // Insert FinishTransaction function
+
                 }
+            
                 else if (userInputString == "3") // Exit button
                 { break; }
                 else { Console.WriteLine("Please enter a valid selection."); } // wrong input handling
