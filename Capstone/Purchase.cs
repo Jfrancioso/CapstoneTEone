@@ -15,7 +15,8 @@ namespace Capstone
         public StuffedAnimals productSelected { get; set; } //needs to indicate a position set by the user, and reference a stuffedAnimal(hypothetically through a dictionary?)
 
 
-        public decimal FeedMoney(int moneyAdded) { CurrentBalance += moneyAdded; return CurrentBalance; } //function for user to add money
+        public decimal FeedMoney(int moneyAdded) 
+        { CurrentBalance += moneyAdded; return CurrentBalance; } //function for user to add money
        
         public decimal FinishTransaction() //part of the purchase flow, that dispenses change, sets balance to 0, sends user to beginning of process
         {

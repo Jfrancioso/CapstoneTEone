@@ -16,7 +16,7 @@ namespace Capstone
         
 
 
-        public Dictionary<string, StuffedAnimals> LoadInventory(Dictionary<string, StuffedAnimals > methodDictionary)
+        public Dictionary<string, StuffedAnimals> LoadInventory(Dictionary<string, StuffedAnimals > stuffedAnimalsDictionary)
         {
 
             Duck Yellow = new Duck("A1", "Yellow Duck", 0.90M, "Duck");
@@ -59,7 +59,7 @@ namespace Capstone
             StuffedAnimalsDictionary["D3"] = Horse;
             StuffedAnimalsDictionary["D4"] = Rainbow;
 
-            return methodDictionary;
+            return stuffedAnimalsDictionary;
 
            
         }
