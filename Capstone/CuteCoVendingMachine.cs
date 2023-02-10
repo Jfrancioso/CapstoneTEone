@@ -15,7 +15,7 @@ namespace Capstone
         }
         
 
-        
+        //Wilson's Dictionary Extravaganza
          public Dictionary<string,StuffedAnimals> FillVendingMachine ()
         {
             Duck Yellow = new Duck("A1", "Yellow Duck", 0.90M, "Duck");

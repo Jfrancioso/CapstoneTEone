@@ -7,6 +7,10 @@ namespace Capstone
     class Menu
     {
         static void Main(string[] args)
+
+
+
+            //creating objects (specific stuffedanimal types)
         {
             Duck Yellow = new Duck("A1", "Yellow Duck", 0.90M, "Duck");
             Duck Cube = new Duck("A2", "Cube Duck", 2.50M, "Duck");
@@ -31,6 +35,8 @@ namespace Capstone
 
             Pony Rainbow = new Pony("D4", "Rainbow Horse", 1.35M, "Pony");
 
+
+            //creating position/animal dictionary to reference for SelectProduct
             Dictionary<string, StuffedAnimals> stuffedAnimalsDictionary = new Dictionary<string, StuffedAnimals>();
 
             stuffedAnimalsDictionary["A1"] = Yellow;
