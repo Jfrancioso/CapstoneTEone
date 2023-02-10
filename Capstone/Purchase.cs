@@ -26,10 +26,7 @@ namespace Capstone
 
         }
 
-        public StuffedAnimals SelectProduct(string userInput)
-        {
-            return stuffedAnimalsDictionary[userInput];
-        }
+    
 
     }
 }
