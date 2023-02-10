@@ -7,14 +7,24 @@ namespace Capstone
     public class CuteCoVendingMachine
     {
 
+
        public Dictionary<string, StuffedAnimals> StuffedAnimalsDictionary = new Dictionary<string, StuffedAnimals>();
        public CuteCoVendingMachine(Dictionary<string, StuffedAnimals> stuffedAnimalsDictionary) //lowercase is the input that CuteCo takes, uppercase is what we are working with
         {
             StuffedAnimalsDictionary = stuffedAnimalsDictionary;
         }
+       public string AnimalMessage { get; set; }
+        public void WriteMessage(StuffedAnimals Species)
+        {
+            if (Species.Species == "Duck") { AnimalMessage = "Quack, Quack, Splash"; }
+            else if (Species.Species == "Pony") { AnimalMessage = "Neigh, Neigh, Yay"; }
+            else if (Species.Species == "Cat") { AnimalMessage = "Meow, Meow, Meow"; }
+            else if (Species.Species == "Penguin") { AnimalMessage = "Squawk, Squawk, Whee"; }
+            
 
-        
+        }
 
+        //METHODS
 
         public Dictionary<string, StuffedAnimals> LoadInventory(Dictionary<string, StuffedAnimals > stuffedAnimalsDictionary)
         {
@@ -59,9 +69,7 @@ namespace Capstone
             StuffedAnimalsDictionary["D3"] = Horse;
             StuffedAnimalsDictionary["D4"] = Rainbow;
 
-            return stuffedAnimalsDictionary;
-
-           
+            return stuffedAnimalsDictionary;   
         }
 
         public void DisplayCurrentInventory(Dictionary<string,StuffedAnimals> test )
@@ -70,12 +78,8 @@ namespace Capstone
             {
                 if (kvp.Value.CurrentStock == 0)
                 { Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + "Out of Stock"); }
-                
-                
                 Console.WriteLine(kvp.Key + ": " + kvp.Value.Name + " Price: " + kvp.Value.Price + " Current Stock: " + kvp.Value.CurrentStock);
             }
-
-
         }
 
         public void DispenseProduct(StuffedAnimals BeingAdopted, Purchase OngoingPurchase)
@@ -84,10 +88,8 @@ namespace Capstone
             OngoingPurchase.CurrentBalance -= BeingAdopted.Price;
             Console.WriteLine($"You are going home with {BeingAdopted.Name} , Lucky you!");
             Console.WriteLine($"Money left over: {OngoingPurchase.CurrentBalance}");
-        }
-        
 
-   
+        }
 
 
     }

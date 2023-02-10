@@ -79,6 +79,8 @@ namespace Capstone
                                 if (productSelected.Price <= currentPurchase.CurrentBalance)
                                 { 
                                 loadedVendingMachine.DispenseProduct(productSelected, currentPurchase);
+                                loadedVendingMachine.WriteMessage(productSelected);
+                                Console.WriteLine(loadedVendingMachine.AnimalMessage);
                                 currentPurchase.RecordTransaction(currentPurchase);
                            
                             }//dispense method, affects tock and current balance
@@ -88,10 +90,6 @@ namespace Capstone
                             {
                                 Console.WriteLine("You have entered an invalid product code");
                             }
-
-
-
-
                         }
                         else if (userPurchaseSelection == "3")
 

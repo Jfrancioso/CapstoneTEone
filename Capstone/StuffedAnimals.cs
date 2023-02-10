@@ -16,6 +16,7 @@ namespace Capstone
 
         public int CurrentStock { get; set; } = 5; // default set to 5, because this is max inventory , the only StuffedAnimals property that will change at all 
 
+        public string Message { get; set; }
 
         public StuffedAnimals(string position, string name, decimal price, string species) // our constructor
         {
