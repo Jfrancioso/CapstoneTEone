@@ -12,6 +12,7 @@ namespace Capstone
 
             //creating objects (specific stuffedanimal types)
         {
+<<<<<<< HEAD
             Duck Yellow = new Duck("A1", "Yellow Duck", 0.90M, "Duck");
             Duck Cube = new Duck("A2", "Cube Duck", 2.50M, "Duck");
             Duck Beach = new Duck("A3", "Beach Duck", 1.50M, "Duck");
@@ -59,6 +60,20 @@ namespace Capstone
             stuffedAnimalsDictionary["D3"] = Horse;
             stuffedAnimalsDictionary["D4"] = Rainbow;
 
+=======
+            Dictionary<string, StuffedAnimals> testDictionary = new Dictionary<string, StuffedAnimals>();
+            CuteCoVendingMachine loadedVendingMachine = new CuteCoVendingMachine(testDictionary);
+
+           testDictionary = loadedVendingMachine.LoadInventory(testDictionary);
+            
+            foreach (KeyValuePair<string, StuffedAnimals> kvp in loadedVendingMachine.StuffedAnimalsDictionary)
+            {
+                Console.WriteLine(kvp.Key+ ": " + kvp.Value.Name);
+            }
+           
+
+            
+>>>>>>> 54581e9fec74d297865d5739682bbd71335a6f87
 
 
 
