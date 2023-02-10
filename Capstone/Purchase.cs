@@ -26,14 +26,12 @@ namespace Capstone
 
         }
 
-<<<<<<< HEAD
-        public StuffedAnimals SelectProduct(string userInput) //the function that needs to take user input and connect it to a reference of a stuffedanimal
+
+       /* public StuffedAnimals SelectProduct(string userInput) //the function that needs to take user input and connect it to a reference of a stuffedanimal
         {
             return stuffedAnimalDictionary[userInput];
-        }
-=======
-    
->>>>>>> 54581e9fec74d297865d5739682bbd71335a6f87
+        }*/
+
 
     }
 }
