@@ -14,6 +14,7 @@ namespace Capstone
             StuffedAnimalsDictionary = stuffedAnimalsDictionary;
         }
        public string AnimalMessage { get; set; }
+        //method that displays the unique message of each stuffed animal based on the species
         public void WriteMessage(StuffedAnimals Species)
         {
             if (Species.Species == "Duck") { AnimalMessage = "Quack, Quack, Splash"; }
@@ -25,7 +26,7 @@ namespace Capstone
         }
 
         //METHODS
-
+        //load inventory method fills our "vending machine"(dictionary) with all of the stuffed animals that we are selling with a stock of 5
         public Dictionary<string, StuffedAnimals> LoadInventory(Dictionary<string, StuffedAnimals > stuffedAnimalsDictionary)
         {
 
@@ -72,7 +73,7 @@ namespace Capstone
             return stuffedAnimalsDictionary;   
         }
 
-        public void DisplayCurrentInventory(Dictionary<string,StuffedAnimals> test )
+        public void DisplayCurrentInventory(Dictionary<string,StuffedAnimals> test )//displays current inventory
         {
             foreach (KeyValuePair<string, StuffedAnimals> kvp in test)
             {
@@ -83,14 +84,14 @@ namespace Capstone
             }
             Console.WriteLine();
         }
-
+        //method that decreases current stock of selected stuffed animal subtracts cost of stuffed animal from currrent balance and displays messages to user what they chose and how much money is left
         public void DispenseProduct(StuffedAnimals BeingAdopted, Purchase OngoingPurchase)
         {
             BeingAdopted.CurrentStock--;
             OngoingPurchase.CurrentBalance -= BeingAdopted.Price;
             Console.WriteLine($"You are going home with {BeingAdopted.Name} , Lucky you!");
             Console.WriteLine($"Money left over: {OngoingPurchase.CurrentBalance}");
-
+            Console.WriteLine();
         }
 
 
